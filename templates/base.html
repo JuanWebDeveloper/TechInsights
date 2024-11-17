@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        TechInsights
+      {% endblock %}
+    </title>
+    {% block styles %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <!-- Public navbar global -->
+    <nav class="public-navbar">
+      <div class="logo">TechInsights</div>
+      <ul class="navigation">
+        <li>
+          <a href="{% url 'home_page' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="">Iniciar Sesión</a>
+        </li>
+        <li>
+          <a href="">Registrarse</a>
+        </li>
+        <li>
+          <a href="">Blog</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="templates-content">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>
