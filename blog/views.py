@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SignInForm
+from .forms import SignInForm, SignUpForm
 
 
 def blog(request):
@@ -18,4 +18,11 @@ def signin(request):
 
 
 def signup(request):
-    return render(request, 'signup.html')
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            # Login to login
+            return redirect('home_page')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})

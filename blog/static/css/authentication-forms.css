@@ -93,6 +93,7 @@
 .authentication-form .container form button {
  align-items: center;
  background-color: #222222;
+ box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
  border: none;
  border-radius: 5px;
  color: #f9fafb;
@@ -102,12 +103,13 @@
  justify-content: center;
  position: relative;
  padding: 0.5rem;
- transition: 0.3s background-color ease-out;
+ transition: 0.3s all ease-out;
  width: 100%;
 }
 
 .authentication-form .container form button:hover {
  background-color: rgb(53, 52, 52);
+ box-shadow: inset 4px 4px 12px #222222, inset -4px -4px 12px #444444;
 }
 
 .authentication-form .container form button svg {
