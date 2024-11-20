@@ -18,9 +18,11 @@ h2 {
  margin-bottom: 2rem;
 }
 
+/* Public Navbar */
 .public-navbar {
  align-items: center;
  background-color: #f9fafb;
+ box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
  display: flex;
  height: 60px;
  justify-content: space-between;
@@ -31,14 +33,57 @@ h2 {
  z-index: 100;
 }
 
+.public-navbar .bars {
+ cursor: pointer;
+ display: none;
+ margin-right: 30px;
+}
+
+.public-navbar .bars .bar {
+ background-color: #222222;
+ border-radius: 5px;
+ height: 3px;
+ transition: all 0.3s ease-in;
+ width: 30px;
+}
+
+.public-navbar .bars .bar:nth-child(1) {
+ margin-bottom: 0.5rem;
+}
+
+.public-navbar .bars .bar:nth-child(2) {
+ margin-bottom: 0.5rem;
+}
+
+.public-navbar .bars.active .bar {
+ background-color: #2563eb;
+}
+
+.public-navbar .bars.active .bar:nth-child(1) {
+ height: 0;
+ opacity: 0;
+ margin-bottom: 0;
+}
+
+.public-navbar .bars.active .bar:nth-child(2) {
+ transform: rotate(45deg);
+ margin-bottom: 0;
+}
+
+.public-navbar .bars.active .bar:nth-child(3) {
+ transform: rotate(-45deg);
+}
+
 .public-navbar .logo {
  color: #2563eb;
  font-size: 30px;
  font-weight: 500;
  margin-left: 30px;
 }
+
 .public-navbar .navigation {
  display: flex;
+ padding: 0;
 }
 
 .public-navbar .navigation li {
@@ -62,12 +107,12 @@ h2 {
  width: 100vw;
 }
 
+/* Footer */
 .footer {
  background-color: #1f2937;
  position: relative;
- padding: 1rem;
+ padding: 1rem 0;
  width: 100%;
- bottom: 0;
 }
 
 .footer .container {
@@ -114,6 +159,36 @@ h2 {
 }
 
 @media (max-width: 767px) {
+ .public-navbar .bars {
+  display: block;
+ }
+
+ .public-navbar .navigation {
+  background-color: #f0f0f0;
+  box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
+  border-top: 3px solid #2563eb;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  left: -100%;
+  position: absolute;
+  top: 45px;
+  transition: all 0.5s ease-in;
+  scale: 0;
+  width: 100%;
+  z-index: 10;
+ }
+
+ .public-navbar .navigation.active {
+  left: 0;
+  scale: 1;
+ }
+
+ .public-navbar .navigation li {
+  margin: 0.7rem 0;
+  text-align: center;
+ }
+
  .footer .container .content {
   flex-direction: column;
  }
