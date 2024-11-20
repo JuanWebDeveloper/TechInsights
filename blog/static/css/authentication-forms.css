@@ -1,0 +1,142 @@
+.authentication-form {
+ align-items: center;
+ display: flex;
+ min-height: 100vh;
+ position: relative;
+ padding: 5rem 0;
+ width: 100vw;
+}
+
+.authentication-form .container {
+ border-radius: 10px;
+ box-shadow: 0px 2px 9px rgba(34, 34, 34, 0.5);
+ margin: 0 auto;
+ position: relative;
+ padding: 1.5rem;
+ text-align: center;
+ width: 45%;
+}
+
+.authentication-form .container form {
+ margin: 0 auto;
+ margin-bottom: 2rem;
+ position: relative;
+ width: 100%;
+}
+
+.authentication-form .container form .form-header h2 {
+ margin: 0;
+}
+
+.authentication-form .container form .form-header p {
+ color: #636262;
+ margin: 0;
+ margin-bottom: 2rem;
+}
+
+.authentication-form .container form .form-group {
+ margin-bottom: 1rem;
+ position: relative;
+ width: 100%;
+}
+
+.authentication-form .container form .form-group label {
+ color: #222222;
+ display: block;
+ font-weight: bold;
+ margin-bottom: 0.5rem;
+ text-align: left;
+}
+
+.authentication-form .container form .form-group input {
+ box-shadow: 0px 4px 8px rgba(34, 34, 34, 0.2);
+ border: none;
+ border-radius: 5px;
+ color: #222222;
+ font-size: 16px;
+ font-weight: 500;
+ padding: 0.5rem;
+ transition: all 0.2s ease-in;
+ width: 100%;
+}
+
+.authentication-form .container form .form-group input:focus {
+ outline: none;
+ box-shadow: 0px 0px 10px rgba(37, 99, 235, 0.4), 0px 0px 20px rgba(37, 99, 235, 0.4);
+}
+
+.authentication-form .container form .form-group input:hover {
+ box-shadow: 0px 0px 10px rgba(37, 99, 235, 0.4), 0px 0px 20px rgba(37, 99, 235, 0.4);
+}
+
+.authentication-form .container form .form-group .error {
+ background-color: #da0707;
+ box-shadow: 4px 4px 9px rgba(34, 34, 34, 0.5);
+ border-radius: 5px;
+ margin-top: 1rem;
+ position: relative;
+ padding: 0.5rem;
+}
+
+.authentication-form .container form .form-group .error ul {
+ padding: 0;
+ margin: 0;
+}
+
+.authentication-form .container form .form-group .error ul li {
+ color: #f9fafb;
+ font-size: 20px;
+ list-style: none;
+ text-align: center;
+}
+
+.authentication-form .container form button {
+ align-items: center;
+ background-color: #222222;
+ border: none;
+ border-radius: 5px;
+ color: #f9fafb;
+ cursor: pointer;
+ font-size: 17px;
+ display: inline-flex;
+ justify-content: center;
+ position: relative;
+ padding: 0.5rem;
+ transition: 0.3s background-color ease-out;
+ width: 100%;
+}
+
+.authentication-form .container form button:hover {
+ background-color: rgb(53, 52, 52);
+}
+
+.authentication-form .container form button svg {
+ margin-right: 0.5rem;
+ width: 30px;
+}
+
+.authentication-form .container a {
+ display: block;
+ color: #1051dd;
+ font-size: 17px;
+ text-decoration: none;
+ transition: all ease-in 0.3s;
+}
+
+.authentication-form .container a:hover {
+ color: #2563eb;
+ text-decoration: none;
+ scale: 1.1;
+}
+
+@media (max-width: 1024px) {
+ .authentication-form .container {
+  width: 70%;
+ }
+}
+
+@media (max-width: 767px) {
+ .authentication-form .container {
+  width: 90%;
+ }
+}
