@@ -1,4 +1,5 @@
 * {
+ box-sizing: border-box;
  font-family: 'Poppins', sans-serif;
 }
 
@@ -36,7 +37,7 @@ h2 {
 .public-navbar .bars {
  cursor: pointer;
  display: none;
- margin-right: 30px;
+ margin-right: 15px;
 }
 
 .public-navbar .bars .bar {
@@ -75,10 +76,34 @@ h2 {
 }
 
 .public-navbar .logo {
+ align-items: center;
+ display: flex;
+ margin-left: 30px;
+ text-decoration: none;
+}
+
+.public-navbar .logo svg {
+ width: 40px;
+ transition: scale 0.3s ease-in;
+}
+
+.public-navbar .logo span {
  color: #2563eb;
  font-size: 30px;
  font-weight: 500;
- margin-left: 30px;
+ letter-spacing: 2px;
+ margin-left: 0.5rem;
+ text-shadow: 1px 1px 2px rgba(34, 34, 34, 0.7), -1px -1px 2px rgba(34, 34, 34, 0.7), 1px -1px 2px rgba(34, 34, 34, 0.7),
+  -1px 1px 2px rgba(34, 34, 34, 0.7);
+ transition: letter-spacing 0.3s ease-out;
+}
+
+.public-navbar .logo:hover svg {
+ scale: 1.1;
+}
+
+.public-navbar .logo:hover span {
+ letter-spacing: 3px;
 }
 
 .public-navbar .navigation {
@@ -98,8 +123,27 @@ h2 {
  text-decoration: none;
 }
 
+.public-navbar .navigation a.authentication {
+ align-items: center;
+ display: flex;
+ justify-content: center;
+}
+
+.public-navbar .navigation a svg {
+ width: 20px;
+ transition: 0.3s scale ease-in;
+}
+
+.public-navbar .navigation a span {
+ margin-left: 0.3rem;
+}
+
 .public-navbar .navigation a:hover {
  color: #2563eb;
+}
+
+.public-navbar .navigation a:hover svg {
+ scale: 1.1;
 }
 
 .templates-content {
@@ -163,6 +207,10 @@ h2 {
   display: block;
  }
 
+ .public-navbar .logo {
+  margin-left: 15px;
+ }
+
  .public-navbar .navigation {
   background-color: #f0f0f0;
   box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
@@ -188,7 +236,6 @@ h2 {
   margin: 0.7rem 0;
   text-align: center;
  }
-
  .footer .container .content {
   flex-direction: column;
  }
