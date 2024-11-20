@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        TechInsights
+      {% endblock %}
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/global-styles.css' %}" />
+    {% block styles %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <!-- Public navbar global -->
+    <nav class="public-navbar">
+      <div class="logo">TechInsights</div>
+
+      <div class="bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <ul class="navigation">
+        <li>
+          <a href="{% url 'home_page' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="">Blog</a>
+        </li>
+        <li>
+          <a href="">Iniciar Sesión</a>
+        </li>
+        <li>
+          <a href="">Registrarse</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="templates-content">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content">
+          <div class="branding">
+            <h3>TechInsights</h3>
+            <p>Tu fuente confiable de noticias tecnológicas</p>
+          </div>
+          <div class="links">
+            <a href="">Iniciar Sesión</a>
+            <a href="">Registro</a>
+          </div>
+        </div>
+        <div class="copyright">© 2023 TechInsights. Todos los derechos reservados.</div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/navbar.js' %}"></script>
+    {% block scripts %}
+
+    {% endblock %}
+  </body>
+</html>

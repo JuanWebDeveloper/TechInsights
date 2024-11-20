@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <section class="welcome-banner">
+    <div class="container">
+      <h1>Bienvenido a TechInsights</h1>
+      <p>Tu fuente confiable de noticias y análisis tecnológicos</p>
+      <a href="">📖 Explorar Artículos</a>
+    </div>
+  </section>
+
+  <section class="our-categories">
+    <div class="container">
+      <h2>Nuestras Categorías</h2>
+      <div class="categories">
+        <div class="category">
+          <h3>Desarrollo Web</h3>
+          <p>Las últimas tendencias y herramientas en desarrollo web.</p>
+        </div>
+        <div class="category">
+          <h3>Inteligencia Artificial</h3>
+          <p>Avances y aplicaciones de la IA en diversos campos.</p>
+        </div>
+        <div class="category">
+          <h3>Tutoriales</h3>
+          <p>Guías paso a paso para dominar nuevas tecnologías.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-articles">
+    <div class="container">
+      <h2>Últimos Artículos</h2>
+      <div class="articles">
+        <div class="article">
+          <h3>Título del Artículo 1</h3>
+          <p>Una breve descripción del artículo que captura la atención del lector y lo invita a leer más.</p>
+          <a href="">Leer más</a>
+        </div>
+        <div class="article">
+          <h3>Título del Artículo 1</h3>
+          <p>Una breve descripción del artículo que captura la atención del lector y lo invita a leer más.</p>
+          <a href="">Leer más</a>
+        </div>
+        <div class="article">
+          <h3>Título del Artículo 1</h3>
+          <p>Una breve descripción del artículo que captura la atención del lector y lo invita a leer más.</p>
+          <a href="">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
