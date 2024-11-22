@@ -202,6 +202,10 @@ h2 {
  color: #2563eb;
 }
 
+.footer .container .copyright {
+ text-align: center;
+}
+
 @media (max-width: 767px) {
  .public-navbar .bars {
   display: block;
