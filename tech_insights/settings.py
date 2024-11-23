@@ -39,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.redirect_authenticated_user.RedirectAuthenticatedUserMiddleware',
 ]
 
 ROOT_URLCONF = 'tech_insights.urls'
