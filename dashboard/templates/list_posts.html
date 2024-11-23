@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
   TechInsights - Tus Artículos
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/list_posts.css' %}" />
 {% endblock %}
 
 {% block content %}
