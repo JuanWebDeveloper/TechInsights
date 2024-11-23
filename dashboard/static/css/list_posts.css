@@ -1,32 +1,32 @@
-.blog {
+.list-posts {
  margin-bottom: 5rem;
  position: relative;
  width: 100vw;
 }
 
-.blog .container {
+.list-posts .container {
  margin: 0 auto;
  position: relative;
  width: 90%;
 }
 
-.blog .container .blog-header {
+.list-posts .container .intro {
  position: relative;
  padding: 5rem 0;
  text-align: center;
  width: 100%;
 }
 
-.blog .container .blog-header h2,
-.blog .container .blog-header p {
+.list-posts .container .intro h2,
+.list-posts .container .intro p {
  margin: 0;
 }
 
-.blog .container .blog-header h2 {
+.list-posts .container .intro h2 {
  margin-bottom: 0.5rem;
 }
 
-.blog .container .blog-header p {
+.list-posts .container .intro p {
  color: #2563eb;
  font-size: 20px;
  font-weight: 600;

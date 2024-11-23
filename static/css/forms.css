@@ -1,0 +1,113 @@
+form {
+ margin: 0 auto;
+ margin-bottom: 2rem;
+ position: relative;
+ width: 100%;
+}
+
+form .form-header h2 {
+ margin: 0;
+}
+
+form .form-header p {
+ color: #636262;
+ margin: 0;
+ margin-bottom: 2rem;
+}
+
+form .form-group {
+ margin-bottom: 1rem;
+ position: relative;
+ width: 100%;
+}
+
+form .form-group label {
+ color: #222222;
+ display: block;
+ font-weight: bold;
+ margin-bottom: 0.5rem;
+ text-align: left;
+}
+
+form .form-group input,
+form .form-group textarea,
+form .form-group select {
+ box-shadow: 0px 4px 8px rgba(34, 34, 34, 0.2);
+ border: none;
+ border-radius: 5px;
+ color: #222222;
+ font-size: 16px;
+ font-weight: 500;
+ padding: 0.5rem;
+ transition: all 0.2s ease-in;
+ width: 100%;
+}
+
+form .form-group textarea {
+ resize: none;
+}
+
+form .form-group select {
+ text-align: center;
+}
+
+form .form-group input:focus,
+form .form-group textarea:focus,
+form .form-group select:focus {
+ outline: none;
+ box-shadow: 0px 0px 10px rgba(37, 99, 235, 0.4), 0px 0px 20px rgba(37, 99, 235, 0.4);
+}
+
+form .form-group input:hover,
+form .form-group textarea:hover,
+form .form-group select:hover {
+ box-shadow: 0px 0px 10px rgba(37, 99, 235, 0.4), 0px 0px 20px rgba(37, 99, 235, 0.4);
+}
+
+form .form-group .error {
+ background-color: #da0707;
+ box-shadow: 4px 4px 9px rgba(34, 34, 34, 0.5);
+ border-radius: 5px;
+ margin-top: 1rem;
+ position: relative;
+ padding: 0.5rem;
+}
+
+form .form-group .error ul {
+ padding: 0;
+ margin: 0;
+}
+
+form .form-group .error ul li {
+ color: #f9fafb;
+ font-size: 20px;
+ list-style: none;
+ text-align: center;
+}
+
+form button {
+ align-items: center;
+ background-color: #222222;
+ box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
+ border: none;
+ border-radius: 5px;
+ color: #f9fafb;
+ cursor: pointer;
+ font-size: 17px;
+ display: inline-flex;
+ justify-content: center;
+ position: relative;
+ padding: 0.5rem;
+ transition: 0.3s all ease-out;
+ width: 100%;
+}
+
+form button:hover {
+ background-color: rgb(53, 52, 52);
+ box-shadow: inset 4px 4px 12px #222222, inset -4px -4px 12px #444444;
+}
+
+form button svg {
+ margin-right: 0.5rem;
+ width: 30px;
+}

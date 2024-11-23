@@ -1,4 +1,4 @@
-.authentication-form {
+.create-post {
  align-items: center;
  display: flex;
  min-height: 100vh;
@@ -7,7 +7,7 @@
  width: 100vw;
 }
 
-.authentication-form .container {
+.create-post .container {
  border-radius: 10px;
  box-shadow: 0px 2px 9px rgba(34, 34, 34, 0.5);
  margin: 0 auto;
@@ -17,28 +17,14 @@
  width: 45%;
 }
 
-.authentication-form .container a {
- display: block;
- color: #1051dd;
- font-size: 17px;
- text-decoration: none;
- transition: all ease-in 0.3s;
-}
-
-.authentication-form .container a:hover {
- color: #2563eb;
- text-decoration: none;
- scale: 1.1;
-}
-
 @media (max-width: 1024px) {
- .authentication-form .container {
+ .create-post .container {
   width: 70%;
  }
 }
 
 @media (max-width: 767px) {
- .authentication-form .container {
+ .create-post .container {
   width: 90%;
  }
 }
