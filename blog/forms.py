@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 import re
@@ -72,9 +73,15 @@ class SignUpForm(forms.Form):
         if len(username) < 5:
             raise ValidationError(
                 "El nombre de usuario debe tener al menos 5 caracteres.")
+        if len(username) > 15:
+            raise ValidationError(
+                "El nombre de usuario debe tener un máximo de 15 caracteres.")
         if not re.match(r'^[a-zA-Z0-9_]+$', username):
             raise ValidationError(
                 "El nombre de usuario solo puede contener letras, números y guiones bajos.")
+        if User.objects.filter(username=username).exists():
+            raise ValidationError(
+                "Este nombre de usuario ya se encuentra registrado.")
         return username
 
     def clean_email(self):
@@ -84,6 +91,10 @@ class SignUpForm(forms.Form):
         except ValidationError:
             raise ValidationError(
                 "Por favor, introduce un correo electrónico válido.")
+
+        if User.objects.filter(email=email).exists():
+            raise ValidationError(
+                "Este correo electrónico ya se encuentra registrado.")
         return email
 
     def clean_password(self):
