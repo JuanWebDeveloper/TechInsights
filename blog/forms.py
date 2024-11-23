@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 import re
@@ -26,6 +27,9 @@ class SignInForm(forms.Form):
         except ValidationError:
             raise ValidationError(
                 "Por favor, introduce un correo electrónico válido.")
+        if not User.objects.filter(email=email).exists():
+            raise ValidationError(
+                "El correo electrónico no está registrado. Por favor, regístrate.")
         return email
 
     def clean_password(self):
@@ -40,6 +44,20 @@ class SignInForm(forms.Form):
             raise ValidationError(
                 "La contraseña debe contener al menos una letra mayúscula.")
         return password
+
+    def clean(self):
+        cleaned_data = super().clean()
+        email = cleaned_data.get('email')
+        password = cleaned_data.get('password')
+
+        if email and password:
+            getUser = User.objects.get(email=email)
+            user = authenticate(username=getUser.username, password=password)
+
+            if user is None:
+                raise ValidationError(
+                    "Correo electrónico o contraseña incorrectos.")
+        return cleaned_data
 
 
 class SignUpForm(forms.Form):
