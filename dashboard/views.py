@@ -14,7 +14,9 @@ def create_post(request):
     if request.method == 'POST':
         form = ManagePost(request.POST)
         if form.is_valid():
+            # Logic for saving the post
             redirect('list_posts')
     else:
         form = ManagePost()
-        return render(request, 'create_post.html', {'form': form})
+
+    return render(request, 'create_post.html', {'form': form})
