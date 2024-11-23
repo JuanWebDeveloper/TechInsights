@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import SignInForm, SignUpForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 
 
 def blog(request):
@@ -12,8 +12,13 @@ def signin(request):
     if request.method == 'POST':
         form = SignInForm(request.POST)
         if form.is_valid():
-            # Login to login
-            return redirect('home_page')
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(username=User.objects.get(
+                email=email).username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('welcome')
     else:
         form = SignInForm()
     return render(request, 'signin.html', {'form': form})
