@@ -95,28 +95,43 @@
  transform: translateY(-10px);
 }
 
-.load-more {
+.pagination {
  position: relative;
- text-align: center;
  width: 100%;
+ text-align: center;
 }
 
-.load-more button {
- background-color: #222222;
- box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
- border: none;
- border-radius: 5px;
- color: #f9fafb;
- cursor: pointer;
- font-size: 17px;
- position: relative;
- padding: 0.5rem 2rem;
- transition: 0.3s all ease-out;
+.pagination .step-links {
+ display: flex;
+ flex-direction: column;
 }
 
-.load-more button:hover {
- background-color: rgb(53, 52, 52);
- box-shadow: inset 4px 4px 12px #222222, inset -4px -4px 12px #444444;
+.pagination .step-links .current {
+ color: #222222;
+ font-size: 1.9rem;
+ margin: 0.7rem 0;
+}
+
+.pagination .step-links div a:first-child {
+ margin-right: 1rem;
+}
+
+.pagination .step-links div a {
+ display: inline-block;
+ color: #1051dd;
+ font-size: 1.3rem;
+ font-weight: 500;
+ text-decoration: none;
+ transition: all 0.3s ease-in;
+}
+
+.pagination .step-links div a:hover {
+ color: #2563eb;
+ scale: 1.1;
+}
+
+.pagination .step-links .current span {
+ color: #2563eb;
 }
 
 @media (max-width: 1023px) {
