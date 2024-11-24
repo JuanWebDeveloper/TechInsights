@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import SignInForm, SignUpForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 
 def blog(request):
@@ -42,3 +43,9 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+
+@login_required
+def signout(request):
+    logout(request)
+    return redirect('home_page')
