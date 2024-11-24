@@ -19,8 +19,8 @@ h2 {
  margin-bottom: 2rem;
 }
 
-/* Public Navbar */
-.public-navbar {
+/* Navbar */
+.navbar {
  align-items: center;
  background-color: #f9fafb;
  box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
@@ -34,13 +34,13 @@ h2 {
  z-index: 100;
 }
 
-.public-navbar .bars {
+.navbar .bars {
  cursor: pointer;
  display: none;
  margin-right: 15px;
 }
 
-.public-navbar .bars .bar {
+.navbar .bars .bar {
  background-color: #222222;
  border-radius: 5px;
  height: 3px;
@@ -48,46 +48,46 @@ h2 {
  width: 30px;
 }
 
-.public-navbar .bars .bar:nth-child(1) {
+.navbar .bars .bar:nth-child(1) {
  margin-bottom: 0.5rem;
 }
 
-.public-navbar .bars .bar:nth-child(2) {
+.navbar .bars .bar:nth-child(2) {
  margin-bottom: 0.5rem;
 }
 
-.public-navbar .bars.active .bar {
+.navbar .bars.active .bar {
  background-color: #2563eb;
 }
 
-.public-navbar .bars.active .bar:nth-child(1) {
+.navbar .bars.active .bar:nth-child(1) {
  height: 0;
  opacity: 0;
  margin-bottom: 0;
 }
 
-.public-navbar .bars.active .bar:nth-child(2) {
+.navbar .bars.active .bar:nth-child(2) {
  transform: rotate(45deg);
  margin-bottom: 0;
 }
 
-.public-navbar .bars.active .bar:nth-child(3) {
+.navbar .bars.active .bar:nth-child(3) {
  transform: rotate(-45deg);
 }
 
-.public-navbar .logo {
+.navbar .logo {
  align-items: center;
  display: flex;
  margin-left: 30px;
  text-decoration: none;
 }
 
-.public-navbar .logo svg {
+.navbar .logo svg {
  width: 40px;
  transition: scale 0.3s ease-in;
 }
 
-.public-navbar .logo span {
+.navbar .logo span {
  color: #2563eb;
  font-size: 30px;
  font-weight: 500;
@@ -98,51 +98,51 @@ h2 {
  transition: letter-spacing 0.3s ease-out;
 }
 
-.public-navbar .logo:hover svg {
+.navbar .logo:hover svg {
  scale: 1.1;
 }
 
-.public-navbar .logo:hover span {
+.navbar .logo:hover span {
  letter-spacing: 3px;
 }
 
-.public-navbar .navigation {
+.navbar .navigation {
  display: flex;
  padding: 0;
 }
 
-.public-navbar .navigation li {
+.navbar .navigation li {
  list-style: none;
  margin-right: 30px;
 }
 
-.public-navbar .navigation a {
+.navbar .navigation a {
  color: #222222;
  font-size: 20px;
  transition: 0.3s color ease-in;
  text-decoration: none;
 }
 
-.public-navbar .navigation a.authentication {
+.navbar .navigation a.authentication {
  align-items: center;
  display: flex;
  justify-content: center;
 }
 
-.public-navbar .navigation a svg {
+.navbar .navigation a svg {
  width: 20px;
  transition: 0.3s scale ease-in;
 }
 
-.public-navbar .navigation a span {
+.navbar .navigation a span {
  margin-left: 0.3rem;
 }
 
-.public-navbar .navigation a:hover {
+.navbar .navigation a:hover {
  color: #2563eb;
 }
 
-.public-navbar .navigation a:hover svg {
+.navbar .navigation a:hover svg {
  scale: 1.1;
 }
 
@@ -207,15 +207,15 @@ h2 {
 }
 
 @media (max-width: 767px) {
- .public-navbar .bars {
+ .navbar .bars {
   display: block;
  }
 
- .public-navbar .logo {
+ .navbar .logo {
   margin-left: 15px;
  }
 
- .public-navbar .navigation {
+ .navbar .navigation {
   background-color: #f0f0f0;
   box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
   border-top: 3px solid #2563eb;
@@ -231,12 +231,12 @@ h2 {
   z-index: 10;
  }
 
- .public-navbar .navigation.active {
+ .navbar .navigation.active {
   left: 0;
   scale: 1;
  }
 
- .public-navbar .navigation li {
+ .navbar .navigation li {
   margin: 0.7rem 0;
   text-align: center;
  }
