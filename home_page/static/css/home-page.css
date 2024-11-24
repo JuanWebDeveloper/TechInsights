@@ -83,7 +83,7 @@
 .latest-articles .container {
  margin: 0 auto;
  position: relative;
- width: 100%;
+ width: 90%;
 }
 
 @media (max-width: 1024px) {
