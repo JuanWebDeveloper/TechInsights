@@ -35,6 +35,12 @@
           {% endif %}
         </div>
 
+        {% if form.non_field_errors %}
+          <div class="form-group">
+            <div class="error">{{ form.non_field_errors }}</div>
+          </div>
+        {% endif %}
+
         <button type="submit">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
