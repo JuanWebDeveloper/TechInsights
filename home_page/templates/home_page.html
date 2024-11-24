@@ -18,18 +18,12 @@
     <div class="container">
       <h2>Nuestras Categorías</h2>
       <div class="categories">
-        <div class="category">
-          <h3>Desarrollo Web</h3>
-          <p>Las últimas tendencias y herramientas en desarrollo web.</p>
-        </div>
-        <div class="category">
-          <h3>Inteligencia Artificial</h3>
-          <p>Avances y aplicaciones de la IA en diversos campos.</p>
-        </div>
-        <div class="category">
-          <h3>Tutoriales</h3>
-          <p>Guías paso a paso para dominar nuevas tecnologías.</p>
-        </div>
+        {% for category in categories %}
+          <div class="category">
+            <h3>{{ category.name }}</h3>
+            <p>{{ category.description }}</p>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </section>
