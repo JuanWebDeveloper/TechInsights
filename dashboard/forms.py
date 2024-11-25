@@ -1,14 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from blog.models import Category
 
 
 class ManagePost(forms.Form):
-    CATEGORY_CHOICES = [
-        ('tech', 'Tecnología'),
-        ('life', 'Estilo de Vida'),
-        ('edu', 'Educación'),
-    ]
-
     title = forms.CharField(
         label="Título",
         required=True,
@@ -23,9 +18,10 @@ class ManagePost(forms.Form):
             'placeholder': 'Escribe tu artículo aquí...'
         })
     )
-    category = forms.ChoiceField(
-        label="Categoría",
-        choices=[('', 'Seleccionar Categoría')] + CATEGORY_CHOICES,
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        label="",
+        empty_label="Seleccionar Categoría",
         required=False,
     )
 
