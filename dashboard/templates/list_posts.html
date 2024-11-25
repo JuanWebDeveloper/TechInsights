@@ -18,47 +18,55 @@
       </div>
 
       <div class="posts">
-        <div class="post">
-          <span>Categoria</span>
-          <h3>Titulo del Post</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus exercitationem necessitatibus obcaecati laudantium voluptates nemo qui maxime numquam nulla incidunt...</p>
-          <div class="post-footer">
-            <div class="author-creation">
-              <span>
-                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#636262"></path> <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#636262"></path>
-                  </g>
-                </svg>Juan Vargas
-              </span>
-              <span>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
+        {% for post in posts %}
+          <div class="post">
+            <span>{{ post.category }}</span>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content|truncatechars:150 }}</p>
+            <div class="post-footer">
+              <div class="author-creation">
+                <span>
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#636262"></path>
+                    <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#636262"></path>
+                  </svg>{{ post.author.username }}
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#636262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </g>
-                </svg>2024-11-20
-              </span>
-            </div>
-            <div class="post-action">
-              <a href="http://">
-                Leer más<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
+                  </svg>{{ post.created_at }}
+                </span>
+              </div>
+              <div class="post-action">
+                <a href="#">
+                  Leer más<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#f9fafb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </g>
-                </svg>
-              </a>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        {% endfor %}
       </div>
-      <div class="load-more">
-        <button>Cargar más artículos</button>
+
+      <div class="pagination">
+        <span class="step-links">
+          {% if posts.has_previous %}
+            <div>
+              <a href="?page=1">Primera</a>
+              <a href="?page={{ posts.previous_page_number }}">Anterior</a>
+            </div>
+          {% endif %}
+
+          <span class="current">Página <span>{{ posts.number }}</span> de <span>{{ posts.paginator.num_pages }}</span></span>
+
+          {% if posts.has_next %}
+            <div>
+              <a href="?page={{ posts.next_page_number }}">Siguiente</a>
+              <a href="?page={{ posts.paginator.num_pages }}">Última</a>
+            </div>
+          {% endif %}
+        </span>
       </div>
     </div>
   </section>
