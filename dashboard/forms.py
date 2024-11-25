@@ -1,9 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from blog.models import Category
+from blog.models import Category, Post
 
 
-class ManagePost(forms.Form):
+class ManagePost(forms.ModelForm):
     title = forms.CharField(
         label="Título",
         required=True,
@@ -24,6 +24,10 @@ class ManagePost(forms.Form):
         empty_label="Seleccionar Categoría",
         required=False,
     )
+
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'category']
 
     def clean_title(self):
         title = self.cleaned_data.get('title')
