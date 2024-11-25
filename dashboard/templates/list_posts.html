@@ -21,8 +21,10 @@
         <div class="posts">
           {% for post in posts %}
             <div class="post">
-              <span>{{ post.category }}</span>
-              <h3>{{ post.title }}</h3>
+              <div>
+                <span>{{ post.category }}</span>
+                <h3>{{ post.title }}</h3>
+              </div>
               <p>{{ post.content|truncatechars:150 }}</p>
               <div class="post-footer">
                 <div class="author-creation">
