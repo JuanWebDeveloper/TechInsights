@@ -38,9 +38,19 @@
             <h3>TechInsights</h3>
             <p>Tu fuente confiable de noticias tecnológicas</p>
           </div>
-          <div class="links">
-            <a href="">Iniciar Sesión</a>
-            <a href="">Registro</a>
+          <div class="links {% if user.is_superuser %} is-superuser {% endif %}">
+            {% if user.is_authenticated %}
+              {% if user.is_superuser %}
+                <a href="/admin">Panel Administrativo</a>
+                <a href="{% url 'list_posts' %}">Mis Articulos</a>
+              {% else %}
+                <a href="{% url 'list_posts' %}">Mis Articulos</a>
+                <a href="{% url 'create_post' %}">Crear Articulo</a>
+              {% endif %}
+            {% else %}
+              <a href="{% url 'signin' %}">Iniciar Sesión</a>
+              <a href="{% url 'signup' %}">Registro</a>
+            {% endif %}
           </div>
         </div>
         <div class="copyright">© 2023 TechInsights. Todos los derechos reservados.</div>
