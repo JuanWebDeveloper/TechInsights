@@ -4,10 +4,20 @@
  width: 100vw;
 }
 
+.list-posts.not-posts {
+ align-items: center;
+ display: flex;
+ height: 100vh;
+}
+
 .list-posts .container {
  margin: 0 auto;
  position: relative;
  width: 90%;
+}
+
+.list-posts .container h3 {
+ text-align: center;
 }
 
 .list-posts .container .intro {

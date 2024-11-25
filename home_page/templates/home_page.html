@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
@@ -10,50 +11,77 @@
     <div class="container">
       <h1>Bienvenido a TechInsights</h1>
       <p>Tu fuente confiable de noticias y análisis tecnológicos</p>
-      <a href="">📖 Explorar Artículos</a>
+      <a href="{% url 'blog' %}">📖 Explorar Artículos</a>
     </div>
   </section>
 
   <section class="our-categories">
     <div class="container">
       <h2>Nuestras Categorías</h2>
-      <div class="categories">
-        <div class="category">
-          <h3>Desarrollo Web</h3>
-          <p>Las últimas tendencias y herramientas en desarrollo web.</p>
+      {% if categories %}
+        <div class="categories">
+          {% for category in categories %}
+            <div class="category">
+              <h3>{{ category.name }}</h3>
+              <p>{{ category.description }}</p>
+            </div>
+          {% endfor %}
         </div>
-        <div class="category">
-          <h3>Inteligencia Artificial</h3>
-          <p>Avances y aplicaciones de la IA en diversos campos.</p>
-        </div>
-        <div class="category">
-          <h3>Tutoriales</h3>
-          <p>Guías paso a paso para dominar nuevas tecnologías.</p>
-        </div>
-      </div>
+      {% else %}
+        <h3>No hay categorías disponibles en este momento.</h3>
+      {% endif %}
     </div>
   </section>
 
   <section class="latest-articles">
     <div class="container">
       <h2>Últimos Artículos</h2>
-      <div class="articles">
-        <div class="article">
-          <h3>Título del Artículo 1</h3>
-          <p>Una breve descripción del artículo que captura la atención del lector y lo invita a leer más.</p>
-          <a href="">Leer más</a>
+      {% if posts %}
+        <div class="posts">
+          {% for post in posts %}
+            <div class="post">
+              <span>{{ post.category }}</span>
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.content|truncate_chars:150 }}</p>
+              <div class="post-footer">
+                <div class="author-creation">
+                  <span>
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#636262"></path> <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#636262"></path>
+                      </g>
+                    </svg>{{ post.author.username }}
+                  </span>
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#636262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg>{{ post.created_at }}
+                  </span>
+                </div>
+                <div class="post-action">
+                  <a href="http://">
+                    Leer más<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#f9fafb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
         </div>
-        <div class="article">
-          <h3>Título del Artículo 1</h3>
-          <p>Una breve descripción del artículo que captura la atención del lector y lo invita a leer más.</p>
-          <a href="">Leer más</a>
-        </div>
-        <div class="article">
-          <h3>Título del Artículo 1</h3>
-          <p>Una breve descripción del artículo que captura la atención del lector y lo invita a leer más.</p>
-          <a href="">Leer más</a>
-        </div>
-      </div>
+      {% else %}
+        <h3>No hay artículos disponibles en este momento.</h3>
+      {% endif %}
     </div>
   </section>
 {% endblock %}
