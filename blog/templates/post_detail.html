@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
   TechInsights - {{ post.title }}
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/post-detail.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/edit-form.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -9,13 +15,15 @@
     <div class="container">
       <div class="post-content">
         <div class="post-header">
-          <h2>{{ post.title }}</h2>
+          <div class="post-title">
+            <h2>{{ post.title }}</h2>
+          </div>
           <div class="author-creation">
             <span>
               <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#636262"></path>
                 <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#636262"></path>
-              </svg>{{ post.author.username }}
+              </svg>{{ post.author.username }} <span>|</span>
             </span>
             <span>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +36,7 @@
         {% if request.user == post.author %}
           <div class="author-actions">
             <div class="ownership-message">
-              <h3>mejora esta frase Este post te pertenece por una mas llamativa ¡Este post es tuyo, creado con tu esencia y estilo!</h3>
+              <h3>¡Este post es tuyo, creado con tu esencia y estilo!</h3>
               <p>Como autor, tienes el poder de editar o eliminar este contenido a tu gusto.</p>
             </div>
             <div class="actions">
@@ -66,7 +74,7 @@
         {% endif %}
 
         <div class="content">
-          <span>{{ post.category }}</span>
+          <span class="category">{{ post.category }}</span>
           <p>{{ post.content }}</p>
 
           {% if not post.created_at == post.last_updated %}

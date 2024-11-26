@@ -1,0 +1,16 @@
+.post-edit-form {
+ position: relative;
+ padding: 0 1rem;
+ width: 100%;
+}
+
+.post-edit-form .content-improvement {
+ background-color: #f1edbe;
+ border-left: 5px solid #facc15;
+ color: #c27807;
+ font-size: 1.1rem;
+ font-weight: 500;
+ margin: 2rem 0;
+ position: relative;
+ padding: 1rem;
+}
