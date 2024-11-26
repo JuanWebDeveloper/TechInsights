@@ -16,6 +16,7 @@
 .post-detail .container .post-content {
  box-shadow: 0 1px 6px rgba(34, 34, 34, 0.7);
  margin: 0 auto;
+ overflow: hidden;
  position: relative;
  width: 80%;
 }
@@ -147,7 +148,20 @@
 .post-detail .container .post-content .content {
  position: relative;
  padding: 2rem 1rem;
+ transition: all ease-in 0.8s;
  width: 100%;
+}
+
+.post-detail .container .post-content .content.hide {
+ height: 0;
+ left: -100%;
+ transform: scaleX(0) scaleY(0);
+}
+
+.post-detail .container .post-content .content.show {
+ height: auto;
+ left: 0;
+ transform: scaleX(1) scaleY(1);
 }
 
 .post-detail .container .post-content .content .category {

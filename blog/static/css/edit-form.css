@@ -14,3 +14,21 @@
  position: relative;
  padding: 1rem;
 }
+
+.post-edit-form form {
+ margin: 0;
+}
+
+.post-edit-form.hide {
+ height: 0;
+ right: -100%;
+ transition: all ease-in 0.9s;
+ transform: scaleX(0) scaleY(0);
+}
+
+.post-edit-form.show {
+ height: auto;
+ right: 0;
+ transition: all ease-out 0.6s;
+ transform: scaleX(1) scaleY(1);
+}
