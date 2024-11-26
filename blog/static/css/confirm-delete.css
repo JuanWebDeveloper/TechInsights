@@ -4,8 +4,19 @@
  left: 0;
  position: fixed;
  top: 0;
+ transition: all 0.5s ease-in;
  width: 100vw;
  z-index: 100;
+}
+
+.confirm-delete.hide {
+ height: 0;
+ transform: scaleX(0) scaleY(0);
+}
+
+.confirm-delete.show {
+ height: 100vh;
+ transform: scaleX(1) scaleY(1);
 }
 
 .confirm-delete .alert {
