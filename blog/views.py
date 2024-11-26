@@ -64,12 +64,16 @@ def signout(request):
 
 
 def post_detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
     if request.method == 'POST':
-        try:
-            post = get_object_or_404(Post, pk=post_id)
-            form = ManagePost(request.POST, instance=post)
-            form.save()
+        if post.author != request.user:
             return redirect('blog')
+        try:
+            form = ManagePost(request.POST, instance=post)
+            if form.is_valid():
+                form.save()
+                return redirect('list_posts')
         except ValueError:
             return render(request, 'post_detail.html', {
                 'post': post,
@@ -77,9 +81,9 @@ def post_detail(request, post_id):
                 'error': 'Error updating post'
             })
     else:
-        post = get_object_or_404(Post, pk=post_id)
         form = ManagePost(instance=post)
-        return render(request, 'post_detail.html', {
-            'post': post,
-            'form': form
-        })
+
+    return render(request, 'post_detail.html', {
+        'post': post,
+        'form': form
+    })
