@@ -87,3 +87,13 @@ def post_detail(request, post_id):
         'post': post,
         'form': form
     })
+
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        if post.author != request.user:
+            return redirect('blog')
+
+        post.delete()
+        return redirect('list_posts')
