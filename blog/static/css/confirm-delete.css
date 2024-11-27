@@ -1,0 +1,140 @@
+.confirm-delete {
+ background-color: rgba(34, 34, 34, 0.8);
+ height: 100vh;
+ left: 0;
+ position: fixed;
+ top: 0;
+ transition: all 0.5s ease-in;
+ width: 100vw;
+ z-index: 100;
+}
+
+.confirm-delete.hide {
+ height: 0;
+ transform: scaleX(0) scaleY(0);
+}
+
+.confirm-delete.show {
+ height: 100vh;
+ transform: scaleX(1) scaleY(1);
+}
+
+.confirm-delete .alert {
+ background-color: #dbeafe;
+ box-shadow: 0 4px 22px rgba(219, 234, 254, 0.7);
+ border-radius: 5px;
+ left: 50%;
+ position: absolute;
+ padding: 2rem;
+ top: 50%;
+ transform: translate(-50%, -50%);
+ width: 60%;
+}
+
+.confirm-delete .alert .alert-header h3 {
+ align-items: center;
+ color: #cb5454;
+ display: flex;
+ justify-content: center;
+}
+
+.confirm-delete .alert .alert-header h3 svg {
+ width: 35px;
+ margin-right: 1rem;
+}
+
+.confirm-delete .alert .alert-content {
+ align-items: center;
+ background-color: #eeb0b090;
+ border-left: 5px solid #f11924;
+ box-shadow: 0 2px 8px rgba(241, 25, 36, 0.8);
+ border-radius: 5px;
+ color: #cb5454;
+ display: flex;
+ font-size: 1.1rem;
+ font-weight: 500;
+ justify-content: center;
+ margin: 2rem 0;
+ position: relative;
+ padding: 1rem;
+}
+
+.confirm-delete .alert .alert-content svg {
+ width: 40px;
+ margin-right: 0.5rem;
+}
+
+.confirm-delete .alert .alert-actions {
+ display: flex;
+ position: relative;
+ width: 100%;
+}
+
+.confirm-delete .alert .alert-actions form {
+ margin: 0;
+ margin-right: 1rem;
+ width: auto;
+}
+
+.confirm-delete .alert .alert-actions button {
+ align-items: center;
+ box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
+ border: none;
+ border-radius: 5px;
+ color: #f9fafb;
+ cursor: pointer;
+ font-size: 1.1rem;
+ display: inline-flex;
+ justify-content: center;
+ position: relative;
+ padding: 0.5rem 1.5rem;
+ transition: 0.3s all ease-out;
+}
+
+.confirm-delete .alert .alert-actions button svg {
+ margin-right: 0.5rem;
+ transition: 0.3s all ease-out;
+ width: 30px;
+}
+
+.confirm-delete .alert .alert-actions button {
+ background-color: #222222;
+}
+
+.confirm-delete .alert .alert-actions button:hover {
+ background-color: rgb(53, 52, 52);
+}
+
+.confirm-delete .alert .alert-actions form button {
+ background-color: #d4020d;
+}
+
+.confirm-delete .alert .alert-actions form button:hover {
+ background-color: #f11924;
+}
+
+.confirm-delete .alert .alert-actions button:hover {
+ scale: 1.05;
+}
+
+.confirm-delete .alert .alert-actions button:hover svg {
+ scale: 0.85;
+}
+
+@media (max-width: 1023px) {
+ .confirm-delete .alert .alert-actions {
+  flex-direction: column;
+  justify-content: center;
+ }
+ .confirm-delete .alert .alert-actions form {
+  margin: 0;
+  margin-bottom: 1rem;
+ }
+}
+
+@media (max-width: 767px) {
+ .confirm-delete .alert {
+  width: 90%;
+  padding: 1rem;
+ }
+}

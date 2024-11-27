@@ -1,0 +1,195 @@
+.post-detail {
+ align-items: center;
+ display: flex;
+ min-height: 100vh;
+ position: relative;
+ padding: 5rem 0;
+ width: 100vw;
+}
+
+.post-detail .container {
+ margin: 0 auto;
+ position: relative;
+ width: 90%;
+}
+
+.post-detail .container .post-content {
+ box-shadow: 0 1px 6px rgba(34, 34, 34, 0.7);
+ margin: 0 auto;
+ overflow: hidden;
+ position: relative;
+ width: 80%;
+}
+
+.post-detail .container .post-content .post-header {
+ background-color: #eff6ff;
+ border-bottom: 5px solid #1051dd;
+ position: relative;
+ padding: 1rem 0;
+ text-align: center;
+}
+
+.post-detail .container .post-content .post-header .post-title {
+ margin: 0 auto;
+ position: relative;
+ width: 95%;
+}
+
+.post-detail .container .post-content .post-header h2 {
+ font-size: 2.5rem;
+ overflow-wrap: break-word;
+ margin: 0;
+ margin-bottom: 1rem;
+}
+
+.post-detail .container .post-content .post-header .author-creation {
+ margin: 0 auto;
+ position: relative;
+ width: 95%;
+}
+
+.post-detail .container .post-content .post-header .author-creation span {
+ align-items: center;
+ color: #636262;
+ display: inline-flex;
+}
+
+.post-detail .container .post-content .post-header .author-creation span:first-child {
+ margin-right: 0.8rem;
+}
+
+.post-detail .container .post-content .post-header .author-creation span:first-child span {
+ margin-left: 0.8rem;
+}
+
+.post-detail .container .post-content .post-header .author-creation span svg {
+ margin-right: 0.5rem;
+ width: 20px;
+}
+
+.post-detail .container .post-content .author-actions {
+ background-color: #dbeafe;
+ position: relative;
+ padding: 1rem;
+ text-align: center;
+}
+
+.post-detail .container .post-content .author-actions h3 {
+ color: #1051dd;
+ font-weight: 600;
+}
+
+.post-detail .container .post-content .author-actions p {
+ color: #2563eb;
+ font-weight: 500;
+}
+
+.post-detail .container .post-content .author-actions .actions {
+ align-items: center;
+ display: flex;
+ justify-content: center;
+ margin-top: 1.5rem;
+ margin-bottom: 0.5rem;
+ position: relative;
+ width: 100%;
+}
+
+.post-detail .container .post-content .author-actions .actions button {
+ align-items: center;
+ box-shadow: 0px 8px 16px rgba(34, 34, 34, 0.7);
+ border: none;
+ border-radius: 5px;
+ color: #f9fafb;
+ cursor: pointer;
+ font-size: 1.1rem;
+ display: inline-flex;
+ justify-content: center;
+ position: relative;
+ padding: 0.5rem 1.5rem;
+ transition: 0.3s all ease-out;
+}
+
+.post-detail .container .post-content .author-actions .actions button svg {
+ margin-right: 0.5rem;
+ transition: 0.3s all ease-out;
+ width: 30px;
+}
+
+.post-detail .container .post-content .author-actions .actions button:first-child {
+ background-color: #1051dd;
+ margin-right: 1rem;
+}
+
+.post-detail .container .post-content .author-actions .actions button:first-child:hover {
+ background-color: #2563eb;
+}
+
+.post-detail .container .post-content .author-actions .actions button:last-child {
+ background-color: #d4020d;
+}
+
+.post-detail .container .post-content .author-actions .actions button:last-child:hover {
+ background-color: #f11924;
+}
+
+.post-detail .container .post-content .author-actions .actions button:hover {
+ scale: 1.05;
+}
+
+.post-detail .container .post-content .author-actions .actions button:hover svg {
+ scale: 0.85;
+}
+
+.post-detail .container .post-content .content {
+ position: relative;
+ padding: 2rem 1rem;
+ transition: all ease-in 0.8s;
+ width: 100%;
+}
+
+.post-detail .container .post-content .content.hide {
+ height: 0;
+ left: -100%;
+ transform: scaleX(0) scaleY(0);
+}
+
+.post-detail .container .post-content .content.show {
+ height: auto;
+ left: 0;
+ transform: scaleX(1) scaleY(1);
+}
+
+.post-detail .container .post-content .content .category {
+ background-color: #2563eb50;
+ box-shadow: 0 1px 6px rgba(34, 34, 34, 0.7);
+ border-radius: 5px;
+ color: #1051dd;
+ padding: 0.5rem;
+}
+
+.post-detail .container .post-content .content p {
+ margin-top: 2rem;
+ overflow-wrap: break-word;
+}
+
+.post-detail .container .post-content .content .last-updated {
+ color: #222222;
+ font-size: 1.2rem;
+ font-weight: 500;
+ margin-top: 2rem;
+ text-align: center;
+}
+
+.post-detail .container .post-content .content .last-updated span {
+ color: #2563eb;
+}
+
+@media (max-width: 767px) {
+ .post-detail .container .post-content {
+  width: 100%;
+ }
+
+ .post-detail .container .post-content .author-actions .actions button {
+  padding: 0.5rem 1rem;
+ }
+}

@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
-from .forms import SignInForm, SignUpForm
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from .forms import SignInForm, SignUpForm
+from dashboard.forms import ManagePost
 from .models import Post
 
 
@@ -60,3 +61,39 @@ def signup(request):
 def signout(request):
     logout(request)
     return redirect('home_page')
+
+
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
+    if request.method == 'POST':
+        if post.author != request.user:
+            return redirect('blog')
+        try:
+            form = ManagePost(request.POST, instance=post)
+            if form.is_valid():
+                form.save()
+                return redirect('list_posts')
+        except ValueError:
+            return render(request, 'post_detail.html', {
+                'post': post,
+                'form': form,
+                'error': 'Error updating post'
+            })
+    else:
+        form = ManagePost(instance=post)
+
+    return render(request, 'post_detail.html', {
+        'post': post,
+        'form': form
+    })
+
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        if post.author != request.user:
+            return redirect('blog')
+
+        post.delete()
+        return redirect('list_posts')
